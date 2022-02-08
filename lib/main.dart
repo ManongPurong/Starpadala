@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'StarCarRental.dart';
+import 'StarVehicleCategory.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,70 +17,48 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.red,
           elevation: 0,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(140),
+            preferredSize: Size.fromHeight(200),
             child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
                     right: 25,
                     left: 25,
-                    bottom: 25,
-                    // top: 10,
+                    // bottom: 25,
                   ),
-                  child: IntrinsicHeight(
+                  child: (Container(
+                    // color: Colors.blue,
+                    height: 100,
                     child: Row(
-                      children: [
-                        Container(
-                          // StarPadalaLogo
-                          color: Colors.blue,
-                          height: 75,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Image(
-                                width: 50,
-                                height: 50,
-                                image: AssetImage(
-                                  'images/StarCarLogo.png',
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 20.0,
-                                ),
-                                child: Text(
-                                  'STAR PADALA',
-                                  style: TextStyle(
-                                    color: Colors.yellow,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image(
+                          width: 80,
+                          height: 80,
+                          image: AssetImage(
+                            'images/StarCarLogo.png',
                           ),
                         ),
-                        VerticalDivider(
-                          thickness: 2,
-                          color: Colors.white,
-                          width: 50,
-                        ),
-                        Container(
-                          // height:100 ,
-                          child: Image(
-                            width: 120,
-                            // height: 180,
-                            image: AssetImage(
-                              'images/truesedan.png',
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 20.0,
+                          ),
+                          child: Text(
+                            'STAR PADALA',
+                            style: TextStyle(
+                              color: Colors.yellow,
+                              fontSize: 25,
                             ),
                           ),
                         ),
                       ],
                     ),
-                  ),
+                  )),
                 ),
-                // SizedBox(
-                //   height: 10,
-                // ),
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: Container(
@@ -132,28 +112,18 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Container(
-                    color: Colors.white,
-                    width: 170,
-                    height: 35,
-                    child: Center(
-                      child: Text(
-                        'Sedan',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                          color: Colors.red,
-                        ),
-                      ),
-                    ),
+                Container(
+                  //SearchBar
+                  width: 365,
+                  child: CupertinoSearchTextField(
+                    backgroundColor: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 70,
                 ),
               ],
             ),
@@ -179,92 +149,58 @@ class MyApp extends StatelessWidget {
                       color: Colors.white,
                     ),
                     height: 500,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 20),
-                          Text(
-                            'Describe your parcel Below:',
-                            style: TextStyle(
-                              // fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.red,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          TextField(
-                            decoration: InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 15),
-                          Text(
-                            'Special Instruction:',
-                            style: TextStyle(
-                              // fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.red,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          TextField(
-                            decoration: InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Stepper(
-                      steps: [
-                        Step(title: Text('Pickup Location'), content: null),
-                      ],
-                    ),
-                  ),
-                  //------------Confirmation for Booking----------------------//
-                  Container(
-                    width: double.infinity,
-                    //White container
-                    decoration: BoxDecoration(
-                      // borderRadius: const BorderRadius.only(
-                      //   topLeft: Radius.circular(20),
-                      //   topRight: Radius.circular(20),
-                      // ),
-                      color: Colors.white,
-                    ),
-                    height: 60,
-
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          child: ElevatedButton(
-                            child: Text('Confirm Booking'),
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.red,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              textStyle: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 15,
+                            right: 15,
+                            top: 10,
+                            bottom: 10,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Available Vehicles',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.red,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Container(
+                                  width: 70,
+                                  height: 20,
+                                  color: Colors.grey[400],
+                                  child: Center(
+                                    child: Text(
+                                      'View All',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(right: 15.0, left: 15.0),
+                          child: Container(
+                            height: 395,
+                            child: ListView.separated(
+                              scrollDirection: Axis.vertical,
+                              itemCount: 8,
+                              separatorBuilder: (context, _) => SizedBox(
+                                height: 8,
+                              ),
+                              itemBuilder: (context, _) =>
+                                  StarVehicleCategory(),
                             ),
                           ),
                         ),
@@ -273,34 +209,34 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              Positioned(
-                top: -20,
-                right: 20,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 3.0, // soften the shadow
-                        spreadRadius: 1.0, //extend the shadow
-                        offset: Offset(
-                          3.0, // Move to right 10  horizontally
-                          2.0, // Move to bottom 10 Vertically
-                        ),
-                      ),
-                    ],
-                  ),
-                  width: 40.0,
-                  height: 40.0,
-                  child: Icon(
-                    Icons.add_shopping_cart_rounded,
-                    color: Colors.white,
-                    size: 25.0,
-                  ),
-                ),
-              ),
+              // Positioned(
+              //   top: -20,
+              //   right: 20,
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       shape: BoxShape.circle,
+              //       color: Colors.red,
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: Colors.grey,
+              //           blurRadius: 3.0, // soften the shadow
+              //           spreadRadius: 1.0, //extend the shadow
+              //           offset: Offset(
+              //             3.0, // Move to right 10  horizontally
+              //             2.0, // Move to bottom 10 Vertically
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //     width: 40.0,
+              //     height: 40.0,
+              //     child: Icon(
+              //       Icons.add_shopping_cart_rounded,
+              //       color: Colors.white,
+              //       size: 25.0,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
